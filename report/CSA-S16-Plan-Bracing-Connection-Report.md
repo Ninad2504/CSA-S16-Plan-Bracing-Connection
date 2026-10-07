@@ -1,241 +1,257 @@
-# Preliminary Design Report
-# Plan Bracing Connection Design
-# CSA S16, HSS203x203x13 Brace to W530x66 Beam
+# ENGINEERING DESIGN NOTE
 
-Prepared for office design note use.
+Project: Plan Bracing Connection Design
+Client / Project: Structural Steel Bracing Connection
+Design Standard: CSA S16
+Date: 2026-10-07
+Prepared by: Engineering Design Note
+Status: Preliminary / Office Design Check
 
-## 1. Project information
-- Brace member: HSS 203 x 203 x 13, ASTM A1085
-- Beam member: W530 x 66, Grade 350W
+---------------------------------------------------------------------
+
+1. PROJECT INFORMATION
+
+1.1 Member data
+- Brace member: HSS 203 x 203 x 13
+- Brace material: ASTM A1085
+- Beam member: W530 x 66
+- Beam material: Grade 350W
 - Brace force: N = 1670 kN (factored axial force)
-- Brace orientation: 50° to horizontal beam
+- Brace angle to horizontal beam: 50°
 - Connection alternatives considered: bolted or welded
-- Structural standard: CSA S16-24 (or current edition adopted by project)
 
-## 2. Design assumptions
-- Steel grade for beam and plate: 350W, Fy = 350 MPa, Fu ≈ 450 MPa
+1.2 Design objective
+To verify the adequacy of a plan bracing connection at the beam node for a factored brace force of 1670 kN, in accordance with CSA S16, and to recommend a suitable connection detailing for the beam and brace.
+
+---------------------------------------------------------------------
+
+2. DESIGN ASSUMPTIONS
+
+2.1 Material assumptions
+- Beam steel: Fy = 350 MPa, Fu ≈ 450 MPa
 - Brace steel: ASTM A1085, Fy ≈ 345 MPa, Fu ≈ 450 MPa
-- Load is considered as design axial force in both tension and compression
-- Brace force is treated as a factored member force at the brace node
-- Connection is assumed to be a plan bracing connection at a beam node
-- Local checks for the beam are based on the concentrated force transferred from the brace to the beam web/flange region
+- Bolts (if used): A490, M30
+- Connection is assumed to be at a plan bracing node, with force transfer to the beam web/flange region
 
-## 3. Brace force components at the connection
-The brace force is resolved into the beam axes:
+2.2 Loading assumptions
+- Brace force is axial and considered in both tension and compression
+- Load is treated as factored design force at the brace end
+- Brace force is resolved into horizontal and vertical components at the connection node
+- Secondary effects due to eccentricity and moment transfer are considered in the connection arrangement and local beam check
 
-N_x = N cos(50°)
-N_y = N sin(50°)
+2.3 Connection assumptions
+- Welded brace-to-gusset and gusset-to-beam detail is the preferred configuration for the given load magnitude
+- Bolted connection is considered as an alternate only and is not preferred for this force level
+- Beam web stiffeners or doubler plates are assumed necessary unless the final local check confirms otherwise
 
-N_x = 1670 x cos(50°)
-N_x = 1670 x 0.6428 = 1073 kN
+---------------------------------------------------------------------
 
-N_y = 1670 x sin(50°)
-N_y = 1670 x 0.7660 = 1279 kN
+3. LOAD RESOLUTION AT THE BRACE NODE
 
-Therefore, the connection must transfer:
+3.1 Given
+N = 1670 kN
+θ = 50°
+
+3.2 Horizontal and vertical components
+N_h = N cos θ
+N_v = N sin θ
+
+N_h = 1670 × cos 50°
+N_h = 1670 × 0.6428 = 1073 kN
+
+N_v = 1670 × sin 50°
+N_v = 1670 × 0.7660 = 1279 kN
+
+3.3 Force path to beam
+The connection must transfer:
 - 1670 kN along the brace axis
-- 1073 kN horizontal component
-- 1279 kN vertical component
+- 1073 kN in the horizontal direction
+- 1279 kN in the vertical direction
 
-These components are to be considered in the connection force path and local beam check.
+These components are used for the local beam, gusset, and weld checks.
 
-## 4. Brace member resistance check
-### 4.1 Gross area of HSS203x203x13
-For a square HSS 203 x 203 x 13, the approximate gross area is:
-A_g ≈ 9.8 x 10^3 mm^2
+---------------------------------------------------------------------
 
-### 4.2 Tension resistance
-CSA S16 tension check:
+4. BRACE MEMBER CHECK
+
+4.1 Brace gross area
+For HSS 203 × 203 × 13, approximate gross area:
+A_g ≈ 9.8 × 10^3 mm^2
+
+4.2 Tension check
+CSA S16 tension resistance is based on:
 φN_t = φ A_g F_y
 
 Using φ = 0.9 and Fy = 345 MPa:
-φN_t = 0.9 x 9800 x 345
-φN_t = 3.04 x 10^6 N
+φN_t = 0.9 × 9800 × 345
+φN_t = 3.04 × 10^6 N
 φN_t = 3040 kN
 
-Compare with design force:
+Check against design force:
 1670 kN < 3040 kN
 
-Result: Brace tension capacity is adequate.
+Result: The HSS 203 × 203 × 13 brace is adequate in tension for the required force.
 
-### 4.3 Compression resistance
-Compression resistance must be checked for global flexural buckling and local buckling.
-The governing equation is:
+4.3 Compression check
+Compression resistance is governed by:
 φN_c = φ A_g F_cr
 
 where F_cr depends on:
-- actual unbraced length of brace
-- brace end restraint and rotation
-- steel grade
-- section classification
+- actual brace length
+- k factor and effective length
+- local buckling
+- flexural buckling
 
-For HSS203x203x13, the local wall slenderness is:
-λ = b/t = 203/13 = 15.6
+The square HSS section wall slenderness is:
+λ = b / t = 203 / 13 = 15.6
 
-This is generally acceptable for the section class for A1085 / 350W-type steel, provided the member is not excessively slender by the actual fabrication and detailing standards.
+This is generally acceptable for A1085 / 350W-related steel use, but the actual compression capacity must be checked using the real brace length and end restraint conditions.
 
-However, compression is usually governing for a brace at this force level. The final check must be performed with the exact brace length and effective length factor K, because:
-- if K L is long, the member may be compression-governed
-- if the brace is short and well restrained, the compression member can be acceptable
+4.4 Compression conclusion
+- Tension capacity is adequate
+- Compression is likely the governing brace check
+- Final compression resistance must be checked with actual unbraced length and end conditions
+- If the brace length is long or end restraint is poor, a larger brace section may be required
 
-Therefore, the preliminary conclusion is:
-- tension capacity is sufficient
-- compression must be verified with actual brace length
-- a larger brace may be required if the panel is long or end restraint is poor
+---------------------------------------------------------------------
 
-## 5. Beam local check – W530x66
-The beam local check is critical because the brace force is not simply a member force; it is transferred into the beam web/flange region and causes concentrated-force effects.
+5. LOCAL BEAM CHECK – W530x66
 
-### 5.1 Beam section overview
-For a W530x66 beam (typical values), approximate section properties are:
+5.1 Beam section summary
+Approximate W530x66 section properties:
 - d ≈ 530 mm
 - t_w ≈ 8–10 mm
 - b_f ≈ 180–200 mm
 - t_f ≈ 12–14 mm
 
-Use exact values from the section file for final verification.
+5.2 Governing local checks
+A concentrated brace force at the beam node creates local demands in the beam web and flange. The following checks are required:
+1. Web yielding
+2. Web crippling
+3. Flange local bending
+4. Weld group capacity
+5. Local block shear / tear-out
+6. Beam web reinforcement requirement
 
-### 5.2 Force transfer into beam
-The brace force introduces concentrated effects into the beam due to the axial brace force and eccentricity. The connection must be designed so that the force path is direct and stable.
-The critical local checks are:
-- web yielding under concentrated load
-- web crippling
-- flange local bending
-- local yielding near weld group
-- block shear and tear-out around welds/bolts
-
-### 5.3 Web yielding check
-Web yielding is checked using a local bearing width and the effective length of bearing. For concentrated load at a brace node, the governing concept is:
+5.3 Web yielding check
+Local web yielding is governed by a relation of the form:
 R_n = 0.9 F_y t_w N_eff
 
 where:
 - R_n = web yielding resistance
-- F_y = yield strength of beam web
-- t_w = beam web thickness
+- F_y = beam web yield strength
+- t_w = web thickness
 - N_eff = effective bearing length from the connection detail
 
-The force from the brace is 1670 kN, which is very high for a concentrated load on a W530x66 web unless the force path is distributed using a gusset, stiffeners, or doubler plates.
+Because the applied brace force is 1670 kN, a direct transfer into an unreinforced web is not recommended. A gusset plate with bearing or a stiffened web region is required.
 
-Therefore, a direct welded or bolted force transfer into a thin web without additional stiffening is not recommended.
+5.4 Web crippling check
+Web crippling is checked using local concentrated load behavior. For a connection near the web, the resistance is related to:
+R_n = C t_w^2 sqrt(E F_y) / (h / t_w)
+or equivalent CSA S16 formulae
 
-### 5.4 Web crippling check
-Web crippling is checked by the local concentrated force at the connection zone. A typical form for design is:
-R_n = 0.75 t_w^2 sqrt(E F_y) / (h / t_w)
-(or equivalent CSA S16 expression for concentrated loads)
+This check is particularly important if the force is applied close to the beam flange or at a concentrated point without local stiffening.
 
-This relation shows that the beam web can be vulnerable to crippling when a large brace force is introduced close to a flange or near an unreinforced web panel.
+5.5 Flange local bending
+A large brace force introduces local flange bending especially when the force is eccentric relative to the beam centroid. The flange must resist the induced local bending and must be checked with the actual gusset arrangement and weld pattern.
 
-Result: For the W530x66, web stiffeners or doubler plates are expected to be required when the brace force is 1670 kN.
+5.6 Beam local conclusion
+For the W530x66 beam, the direct application of a 1670 kN brace force without additional stiffness is not considered adequate. The connection must include:
+- gusset plate load transfer
+- beam web doubler plates or stiffeners
+- local reinforcement at the brace node
 
-### 5.5 Flange local bending
-The brace force may induce local bending in the beam flange where a gusset or weld group is attached. The flange is checked for local bending and plate action using the tributary width and the applied force components.
+Final local beam check must be performed using exact section properties and connection geometry.
 
-Because the brace force has both vertical and horizontal components, the connection must be arranged to minimize eccentricity and avoid significant moment on the beam flange.
+---------------------------------------------------------------------
 
-## 6. Connection concept recommendation
-### 6.1 Preferred design: welded gusset connection
-For a brace force of 1670 kN, the more robust approach under CSA S16 is a welded gusset connection.
+6. RECOMMENDED CONNECTION TYPE
 
-Recommended arrangement:
-- Brace end welded to a gusset plate
-- Gusset welded to the beam web/flange region
-- Beam web doubler plates and/or stiffeners provided at the connection zone
-- Gusset plate designed to transfer the brace force into beam web/flange without causing local failure
+6.1 Preferred option: welded gusset connection
+For the magnitude of this brace force, the preferred connection is:
+- HSS brace welded to a thick gusset plate
+- Gusset plate welded to the beam web/flange region
+- Web stiffeners or doubler plates added at the beam node
 
-This arrangement is preferred because:
-- it distributes the brace force more effectively
-- it avoids excessive bolt group size
-- it reduces local tearing at the beam web
-- it is better suited to a large axial brace force in both tension and compression
+This arrangement provides the most reliable CSA S16-compliant force transfer because it:
+- distributes the force over a larger area
+- reduces local web demand
+- provides better stability under compression
+- avoids excessive bolt counts
+- makes the connection stiffer and more consistent with brace action
 
-### 6.2 Weld design
-Recommended welds:
-- Brace-to-gusset: full-strength weld, full circumference if HSS is used
-- Gusset-to-beam: full-strength weld, sized for the load path to the beam web/flange
+6.2 Preliminary weld recommendation
+- Brace-to-gusset: full-strength weld or CJP weld, as required by design
+- Gusset-to-beam: full-strength weld sized to transfer the brace force and local force components
 
-A practical starting point is:
-- brace-to-gusset: complete joint penetration or equivalent full-strength weld
-- gusset-to-beam: fillet or CJP weld designed to the resist shear and eccentricity forces
-
-Final weld size must be checked using:
+Weld strength should be checked using:
 φR_w = φ A_w F_u
-for weld throat area and electrode strength.
 
-### 6.3 Gusset plate sizing
-The gusset plate must resist:
-- axial force component along brace axis
-- shear transfer to beam framing
-- local bending caused by eccentricity
-- block shear at the weld path
+where A_w is the effective weld throat area and F_u is the required weld strength limit.
 
-Preliminary thickness selection:
-- start with 25 mm gusset plate for a large brace node
-- increase thickness if required by local bending or shear checks
+6.3 Preliminary gusset plate recommendation
+- Start with a gusset thickness of approximately 25 mm
+- Increase if required by plate yielding, rupture, or block shear
+- Ensure all plate edges have adequate AWS/CSA detailing and edge distance limits
 
-The final plate thickness must be confirmed using:
-- gusset plate yielding and rupture checks
-- block shear around welded connection
-- effective width of plate under axial load
+Final gusset thickness and geometry must be confirmed by detailed calculation.
 
-## 7. Bolted alternative check
-### 7.1 Feasibility of M30 A490 bolts
-If a bolted connection is required, the connection will require a significant bolt group.
+---------------------------------------------------------------------
 
-Approximate shear capacity per M30 A490 bolt depends on the governing check and connection condition, but a practical range is around:
-- 180 to 220 kN per bolt in shear, depending on hole type and connection configuration
+7. BOLTED ALTERNATIVE CHECK
 
+7.1 Approximate bolt capacity
+If M30 A490 bolts are used, a typical shear resistance per bolt may be in the range:
+- 180 to 220 kN per bolt, depending on configuration and governing limit state
+
+7.2 Required bolt count
 For 1670 kN:
-N_required / R_one_bolt ≈ 1670 / 200 = 8.4 bolts
+N_req / R_bolt ≈ 1670 / 200 = 8.4 bolts
 
-This suggests a minimum of roughly 8–10 bolts in a highly favorable arrangement. In practice, because of:
-- bearing on HSS wall and gusset plate
-- tear-out and edge distances
-- block shear
-- eccentricity
-- beam web compression
+This indicates a minimum of approximately 8–10 bolts in a very efficient arrangement.
+In practice, due to bearing, tear-out, block shear, and beam web effects, the actual requirement may be:
+- 10–12 bolts or more
 
-the actual required number of bolts will likely be 10–12, or more.
+7.3 Bolted connection conclusion
+A bolted detail is feasible but is not preferred for this force level because it:
+- creates a bulky connection
+- increases local bearing demand on the HSS wall and beam web
+- requires significant edge distance and block shear checks
+- is less efficient and less direct than a welded gusset detail
 
-### 7.2 Bolted connection concerns
-A bolted solution may be feasible but is generally less efficient and more cumbersome for a 1670 kN brace force. Major concerns include:
-- bolt bearing on HSS wall
-- tear-out at gusset edges
-- block shear in the connecting plates
-- local yielding of beam web near bolt group
-- connection stiffness and eccentricity effects
+Conclusion: Bolted option is possible, but welded gusset is the recommended and more rational choice.
 
-Conclusion: bolted is possible, but welded gusset is the preferred and more practical solution for this load level.
+---------------------------------------------------------------------
 
-## 8. Final recommended detail
-The final practical connection is:
-- HSS brace welded to thick gusset plate
-- Gusset plate welded to beam web/flange with stiffeners
-- Beam web doubler plates and stiffeners at the connection zone
-- Connection layout symmetric around the brace axis to minimize eccentricity
-- Additional local reinforcement if the load is applied near the web toe or near the flange edge
+8. FINAL CHECK SUMMARY
 
-This is the most rational CSA S16 detailing approach for a 1670 kN brace connection.
+8.1 Brace capacity
+- HSS 203 × 203 × 13 in tension: adequate
+- HSS 203 × 203 × 13 in compression: must be checked with actual brace length and end restraints
 
-## 9. Design summary
-- Brace HSS203x203x13: adequate in tension
-- Brace compression: requires actual length check
-- Beam W530x66: local beam checks are critical and will likely require stiffener/doubler plates
-- Preferred connection: welded gusset connection
-- Bolted M30 A490 may be possible but is not preferred for this magnitude of force
-- Final design must include local beam web/flange checks, gusset plate checks, weld checks, and brace compression buckling verification
+8.2 Beam local capacity
+- W530x66 requires local reinforcement at the brace connection
+- Web yielding and web crippling checks are likely critical
+- Beam stiffeners or web doubler plates are expected to be required
 
-## 10. Conclusion
-For the given conditions, a robust CSA S16-compliant plan bracing connection can be developed, but the detailed design should be based on a welded gusset arrangement with beam web reinforcement. The connection cannot be finalized without checking the exact brace length, beam connection geometry, and local stiffener arrangement.
+8.3 Connection type
+- Preferred: welded gusset connection with local reinforcement
+- Alternate: bolted connection with large bolt group, not preferred
 
-This report is a preliminary office note for design development and should be used as the basis for the final calculation package and final node detailing.
+8.4 Design recommendation
+Use a welded HSS brace-to-gusset connection with gusset plate anchored to the beam web/flange and with beam web stiffeners/doublers to ensure load path continuity and local stability.
 
----
+---------------------------------------------------------------------
 
-Sketch note:
-The connection detail should be developed as a welded HSS brace-to-gusset connection with a gusset plate attached to the beam web/flange and reinforced with stiffeners/doublers. The brace force acts at 50° to the beam and is resolved into horizontal and vertical components.
+9. CONCLUSION
 
-This report is suitable for copy/paste into Word, and the accompanying SVG sketch can be imported into Word as a figure.
+The connection for a 1670 kN brace force in a HSS203x203x13 brace connected to a W530x66 beam is feasible under CSA S16, but the design is local-force governed rather than just member-force governed. The connection must be detailed to transfer the force into the beam without causing web crippling, local flange bending, or block shear failure.
 
+The recommended design is a welded gusset connection with local stiffening of the beam web and direct force transfer into the beam section. The final design must be confirmed with exact member lengths, connection geometry, weld lengths, plate thickness, and beam local check calculations.
 
+This is a preliminary engineering design note suitable for internal review, office design calculations, and further refinement into final fabrication drawings.
 
+---------------------------------------------------------------------
+
+Engineering Cover Page End
 
